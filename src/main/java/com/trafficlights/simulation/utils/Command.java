@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Command {
     private String type;
-    private String vehicleId;
+    private String Id;
     private String startRoad;
     private String endRoad;
     public String getType() {
@@ -14,10 +14,10 @@ public class Command {
         this.type = type;
     }
     public String getVehicleId() {
-        return vehicleId;
+        return Id;
     }
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setId(String vehicleId) {
+        this.Id = vehicleId;
     }
     public String getStartRoad() {
         return startRoad;

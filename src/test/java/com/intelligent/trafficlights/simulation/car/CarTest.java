@@ -1,4 +1,4 @@
-package car;
+package com.intelligent.trafficlights.simulation.car;
 
 import com.trafficlights.simulation.car.Car;
 import com.trafficlights.simulation.utils.Directions;
@@ -12,7 +12,7 @@ class CarTests {
     public void testCarConstructor() {
         Car car = new Car("vehicle1", "south", "north");
         assertNotNull(car);
-        assertEquals("vehicle1", car.getVehicleId());
+        assertEquals("vehicle1", car.getId());
         assertEquals(Directions.SOUTH, car.getStartRoad());
         assertEquals(Directions.NORTH, car.getEndRoad());
     }
