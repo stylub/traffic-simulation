@@ -36,7 +36,7 @@ public class SimpleControllerTest {
     @Test
     public void testRun() {
         Command addVehicleCommand = new Command();
-        addVehicleCommand.setId("1");
+        addVehicleCommand.setVehicleId("1");
         addVehicleCommand.setType("addVehicle");
         addVehicleCommand.setStartRoad("north");
         addVehicleCommand.setEndRoad("south");
@@ -58,13 +58,13 @@ public class SimpleControllerTest {
     @Test
     public void testRunTwoCars() {
         Command addFirstVehicleCommand = new Command();
-        addFirstVehicleCommand.setId("1");
+        addFirstVehicleCommand.setVehicleId("1");
         addFirstVehicleCommand.setType("addVehicle");
         addFirstVehicleCommand.setStartRoad("north");
         addFirstVehicleCommand.setEndRoad("south");
 
         Command addSecoundVehicleCommand = new Command();
-        addSecoundVehicleCommand.setId("2");
+        addSecoundVehicleCommand.setVehicleId("2");
         addSecoundVehicleCommand.setType("addVehicle");
         addSecoundVehicleCommand.setStartRoad("south");
         addSecoundVehicleCommand.setEndRoad("north");

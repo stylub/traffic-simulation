@@ -2,6 +2,7 @@ package com.trafficlights.simulation.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,7 @@ public class FileUploadController {
     private CommandWrapper parseJson(InputStream src) throws IOException {
         return objectMapper.readValue(src, CommandWrapper.class);
     }
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/upload")
     public List<Command> uploadJson(@RequestParam("file") MultipartFile file) throws IOException {
         CommandWrapper wrapper = parseJson(file.getInputStream());

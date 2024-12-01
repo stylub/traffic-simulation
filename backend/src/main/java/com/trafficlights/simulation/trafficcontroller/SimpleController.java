@@ -44,7 +44,7 @@ public class SimpleController extends TrafficController{
         for (String direction : rounds.get(currentRound)) {
             Car car = roads.getCar(direction);
             if (car != null) {
-                vehicles.add(car.getId());
+                vehicles.add(car.getVehicleId());
             }
         }
         currentRound = (currentRound + 1) % rounds.size();

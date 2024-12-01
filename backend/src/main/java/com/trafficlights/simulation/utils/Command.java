@@ -1,10 +1,8 @@
 package com.trafficlights.simulation.utils;
 
-import java.util.List;
-
 public class Command {
     private String type;
-    private String Id;
+    private String vehicleId;
     private String startRoad;
     private String endRoad;
     public String getType() {
@@ -14,10 +12,10 @@ public class Command {
         this.type = type;
     }
     public String getVehicleId() {
-        return Id;
+        return vehicleId;
     }
-    public void setId(String vehicleId) {
-        this.Id = vehicleId;
+    public void setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
     }
     public String getStartRoad() {
         return startRoad;

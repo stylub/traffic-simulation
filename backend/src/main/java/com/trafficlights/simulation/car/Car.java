@@ -33,7 +33,7 @@ public class Car {
         return startRoad;
     }
 
-    public String getId() {
+    public String getVehicleId() {
         return vehicleId;
     }
 
