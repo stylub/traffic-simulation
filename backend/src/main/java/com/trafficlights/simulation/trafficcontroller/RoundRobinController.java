@@ -55,7 +55,7 @@ public class RoundRobinController extends TrafficController{
             }
         }
         removeFromQueue(roundNow,vehicles.size());
-        stepStatus.addStep(vehicles);
+        simulationResult.addStep(vehicles);
     }
 
     @Override

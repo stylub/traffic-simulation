@@ -28,6 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<inputFile>input.json</inputFile>
+		<outputFile>output.json</outputFile>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -53,8 +55,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.trafficlights.simulation.TrafficSimulatorApplication</mainClass>
+					<arguments>
+						<argument>${inputFile}</argument>
+						<argument>${outputFile}</argument>
+					</arguments>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

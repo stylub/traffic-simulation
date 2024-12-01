@@ -1,9 +1,7 @@
 package com.trafficlights.simulation.trafficcontroller;
 
-import com.trafficlights.simulation.Roads.Roads;
 import com.trafficlights.simulation.car.Car;
 import com.trafficlights.simulation.utils.Command;
-import com.trafficlights.simulation.utils.StepStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +23,7 @@ public class SimpleController extends TrafficController{
             }
         }
         }while(vehicles.isEmpty() &&  rounds.getRoundNumber() != startingRound);
-        stepStatus.addStep(vehicles);
+        simulationResult.addStep(vehicles);
     }
     @Override
     public void run() {
