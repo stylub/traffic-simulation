@@ -19,6 +19,20 @@ jsonFile.addEventListener("change", (e) => {
 const canvas = document.getElementById("rive-canvas");
 const body = document.querySelector(".content");
 
+function getSelectedOption() {
+  const selectedOption = document.querySelector(".option-box li.selected");
+  return selectedOption ? selectedOption.textContent : null;
+}
+
+document.querySelectorAll(".option-box li").forEach((item) => {
+  item.addEventListener("click", () => {
+    document
+      .querySelectorAll(".option-box li")
+      .forEach((li) => li.classList.remove("selected"));
+    item.classList.add("selected");
+  });
+});
+
 const riveInstance = new rive.Rive({
   src: "traffic0.riv",
   canvas: canvas,
@@ -35,7 +49,8 @@ const riveInstance = new rive.Rive({
 
     startSimulation.onclick = async (e) => {
       e.preventDefault();
-      await handleStartSimulation(jsonObject, inputs, riveInstance);
+      const selectedAlgorithm = getSelectedOption();
+      await handleStartSimulation(jsonObject, inputs, selectedAlgorithm);
     };
   },
   onStateChange: (event) => {

@@ -65,3 +65,40 @@ input {
 #start-btn:hover {
   background-color: #de0611;
 }
+
+#choose-algorithm {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#choose-algorithm h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.option-box {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.option-box li {
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option-box li.selected {
+  background-color: #de0611;
+}
+
+.option-box li:hover {
+  background-color: rgb(206, 100, 100);
+}

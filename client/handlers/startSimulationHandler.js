@@ -1,7 +1,11 @@
 import { parseCarData } from "../utils/parseCarData.js";
 import { startCar } from "../utils/carUtils.js";
 
-export async function handleStartSimulation(jsonObject, inputs, riveInstance) {
+export async function handleStartSimulation(
+  jsonObject,
+  inputs,
+  selectedAlgorithm
+) {
   if (!jsonObject) {
     console.error("No JSON object loaded.");
     window.alert("No JSON object loaded.");
@@ -16,7 +20,7 @@ export async function handleStartSimulation(jsonObject, inputs, riveInstance) {
 
   try {
     const response = await fetch(
-      "http://localhost:8080/api/run-commands/round-robin",
+      `http://localhost:8080/api/run-commands/${selectedAlgorithm}`,
       {
         method: "POST",
         headers: {

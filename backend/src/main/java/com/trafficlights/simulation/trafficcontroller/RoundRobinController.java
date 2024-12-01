@@ -5,15 +5,12 @@ import com.trafficlights.simulation.utils.Command;
 
 import java.util.*;
 
-public class WRRController extends TrafficController{
-    private final ArrayList<Integer> queues;
-    private final HashMap<String,Integer> directionToQueue;
-    private int maxPriority = 10;
+public class RoundRobinController extends TrafficController{
+    private final ArrayList<Integer> queues = new ArrayList<>();
+    private final HashMap<String,Integer> directionToQueue = new HashMap<>();
 
-    public WRRController(){
+    public RoundRobinController(){
         super();
-        queues = new ArrayList<Integer>();
-        directionToQueue = new HashMap<>();
         initQueues();
     }
 

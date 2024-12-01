@@ -23,15 +23,6 @@ public abstract class TrafficController {
         this.stepStatus = new StepStatus();
         this.rounds = new Rounds();
     }
-    public TrafficController(Roads roads, StepStatus stepStatus) {
-        this.roads = roads;
-        this.stepStatus = stepStatus;
-        this.rounds = new Rounds();
-    }
-    public void loadCommands(LinkedList<Command> commands) {
-        this.commands = commands;
-    }
-
     public void addCommand(Command command) {
         this.commands.add(command);
     }

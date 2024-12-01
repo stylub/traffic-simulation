@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class SimpleControllerEndpoint {
+public class TrafficControllerEndpoint {
     @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/run-commands/simple")
     public StepStatus runSimple(@RequestBody CommandRequest commandRequest) {
@@ -19,8 +19,8 @@ public class SimpleControllerEndpoint {
     @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/run-commands/round-robin")
     public StepStatus runRoundRobin(@RequestBody CommandRequest commandRequest) {
-        WRRController simpleController = new WRRController();
-        return startSimulation(commandRequest,simpleController);
+        RoundRobinController roundRobinController = new RoundRobinController();
+        return startSimulation(commandRequest,roundRobinController);
     }
 
     public StepStatus startSimulation(CommandRequest commandRequest, TrafficController controller){

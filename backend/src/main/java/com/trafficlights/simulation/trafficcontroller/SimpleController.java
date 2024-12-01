@@ -13,9 +13,6 @@ public class SimpleController extends TrafficController{
     public SimpleController() {
         super();
     }
-    public SimpleController(Roads roads, StepStatus stepStatus) {
-        super(roads,stepStatus);
-    }
     @Override
     public void makeStep(){
         int startingRound = rounds.getRoundNumber();
