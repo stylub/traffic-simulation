@@ -28,16 +28,40 @@ body {
   padding: 1em;
 }
 
-/* .sidebar button {
-  background: white;
-  padding: 1em;
+input {
+  display: none;
+}
+
+.sidebar label {
+  height: 100px;
+  width: 60%;
+  border-radius: 6px;
+  color: #999;
+  border: 3px dashed #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar label:hover {
+  color: #de0611;
+  border: 3px dashed #de0611;
+}
+
+#start-btn {
+  background-color: #999;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
   text-decoration: none;
-  font-family: "Nunito";
-  color: black;
-  font-weight: bold;
-  border-radius: 0.3em;
-  width: 100%;
   display: inline-block;
-  transition: background-color 0.3s;
-  margin-top: 1em;
-} */
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+#start-btn:hover {
+  background-color: #de0611;
+}

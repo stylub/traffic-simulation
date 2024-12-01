@@ -1,4 +1,4 @@
-package com.trafficlights.simulation.trafficcontroller;
+package com.trafficlights.simulation.utils;
 
 import java.util.ArrayList;
 import java.util.List;

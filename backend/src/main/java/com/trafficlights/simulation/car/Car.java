@@ -2,7 +2,6 @@ package com.trafficlights.simulation.car;
 
 
 import com.trafficlights.simulation.utils.Command;
-import com.trafficlights.simulation.utils.DirectionUtils;
 import com.trafficlights.simulation.utils.Directions;
 
 // "vehicleId": "vehicle1",
@@ -15,14 +14,14 @@ public class Car {
 
     public Car(String vehicleId, String startRoad, String endRoad) {
         this.vehicleId = vehicleId;
-        this.startRoad = DirectionUtils.parseDirection(startRoad);
-        this.endRoad = DirectionUtils.parseDirection(endRoad);
+        this.startRoad = Directions.parseDirection(startRoad);
+        this.endRoad = Directions.parseDirection(endRoad);
     }
 
     public Car(Command command) {
         this.vehicleId = command.getVehicleId();
-        this.startRoad = DirectionUtils.parseDirection(command.getStartRoad());
-        this.endRoad = DirectionUtils.parseDirection(command.getEndRoad());
+        this.startRoad = Directions.parseDirection(command.getStartRoad());
+        this.endRoad = Directions.parseDirection(command.getEndRoad());
     }
 
     public Directions getEndRoad() {

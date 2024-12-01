@@ -3,52 +3,31 @@ package com.trafficlights.simulation.trafficcontroller;
 import com.trafficlights.simulation.Roads.Roads;
 import com.trafficlights.simulation.car.Car;
 import com.trafficlights.simulation.utils.Command;
+import com.trafficlights.simulation.utils.StepStatus;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class SimpleController extends TrafficController{
-    private int currentRound = 0;
-    private final List<List<String>> rounds;
-    private final Roads roads;
-    private final StepStatus stepStatus;
-
     public SimpleController() {
-        this.rounds = new ArrayList<>();
-        this.roads = new Roads();
-        this.stepStatus = new StepStatus();
-        initializeRounds();
+        super();
     }
     public SimpleController(Roads roads, StepStatus stepStatus) {
-        this.roads = roads;
-        this.stepStatus = stepStatus;
-        this.rounds = new ArrayList<>();
-        initializeRounds();
+        super(roads,stepStatus);
     }
-    private void initializeRounds() {
-        rounds.add(List.of("northsouth", "southnorth"));
-        rounds.add(List.of("northwest", "westnorth", "southeast", "eastsouth"));
-        rounds.add(List.of("westeast", "eastwest"));
-        rounds.add(List.of("westsouth", "southwest", "eastnorth", "northeast"));
-    }
-
-    public StepStatus getStepStatus() {
-        return stepStatus;
-    }
-
+    @Override
     public void makeStep(){
-        int startingRound = this.currentRound;
+        int startingRound = rounds.getRoundNumber();
         List<String> vehicles = new ArrayList<>();
         do{
-        for (String direction : rounds.get(currentRound)) {
+        for (String direction : rounds.nextRound()) {
             Car car = roads.getCar(direction);
             if (car != null) {
                 vehicles.add(car.getVehicleId());
             }
         }
-        currentRound = (currentRound + 1) % rounds.size();
-        }while(vehicles.isEmpty() && currentRound != startingRound);
+        }while(vehicles.isEmpty() &&  rounds.getRoundNumber() != startingRound);
         stepStatus.addStep(vehicles);
     }
     @Override

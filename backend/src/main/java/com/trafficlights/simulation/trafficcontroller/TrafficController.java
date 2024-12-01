@@ -1,19 +1,33 @@
 package com.trafficlights.simulation.trafficcontroller;
 
+import com.trafficlights.simulation.Roads.Roads;
+import com.trafficlights.simulation.car.Car;
 import com.trafficlights.simulation.utils.Command;
+import com.trafficlights.simulation.utils.Rounds;
+import com.trafficlights.simulation.utils.StepStatus;
 
 
-import java.util.List;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public abstract class TrafficController {
-    LinkedList<Command> commands;
-    private StepStatus stepStatus;
+    protected LinkedList<Command> commands;
+    protected  final Rounds rounds;
+    protected final Roads roads;
+    protected final StepStatus stepStatus;
+
 
     public TrafficController() {
         this.commands = new LinkedList<>();
+        this.roads = new Roads();
+        this.stepStatus = new StepStatus();
+        this.rounds = new Rounds();
     }
-
+    public TrafficController(Roads roads, StepStatus stepStatus) {
+        this.roads = roads;
+        this.stepStatus = stepStatus;
+        this.rounds = new Rounds();
+    }
     public void loadCommands(LinkedList<Command> commands) {
         this.commands = commands;
     }
@@ -26,6 +40,12 @@ public abstract class TrafficController {
         return this.commands.pollFirst();
     }
 
-    public void run() {
+    public StepStatus getStepStatus() {
+        return stepStatus;
     }
+    public abstract void makeStep();
+
+    public abstract void run();
+
+
 }

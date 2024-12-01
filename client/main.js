@@ -3,16 +3,17 @@ import { handleJsonUpload } from "./handlers/jsonUploadHandler.js";
 import { handleStartSimulation } from "./handlers/startSimulationHandler.js";
 import { resizeCanvas } from "./utils/canvasUtils.js";
 
-const jsonUpload = document.getElementById("jsonUpload");
-const jsonFile = document.getElementById("jsonFile");
+const jsonFile = document.getElementById("file");
 const startSimulation = document.getElementById("start-btn");
+const fileLabel = document.getElementById("file-label");
 
 let jsonObject;
 let inputs;
 
-jsonUpload.addEventListener("submit", (e) => {
-  e.preventDefault();
+jsonFile.addEventListener("change", (e) => {
   handleJsonUpload(jsonFile, (obj) => (jsonObject = obj))(e);
+  const fileName = e.target.files[0].name;
+  fileLabel.textContent = fileName;
 });
 
 const canvas = document.getElementById("rive-canvas");

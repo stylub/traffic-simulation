@@ -15,13 +15,16 @@ export async function handleStartSimulation(jsonObject, inputs, riveInstance) {
   console.log(carDirections);
 
   try {
-    const response = await fetch("http://localhost:8080/api/run-commands", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsonObject),
-    });
+    const response = await fetch(
+      "http://localhost:8080/api/run-commands/round-robin",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonObject),
+      }
+    );
 
     const data = await response.json();
     console.log(data);
@@ -31,7 +34,7 @@ export async function handleStartSimulation(jsonObject, inputs, riveInstance) {
         startCar(inputs, carDirections[vehicle]);
         console.log(`${vehicle} is going ${carDirections[vehicle]}`);
       }
-      await delay(2500);
+      if (vehicleList.length > 0) await delay(2500);
     }
   } catch (error) {
     console.error("Error:", error);

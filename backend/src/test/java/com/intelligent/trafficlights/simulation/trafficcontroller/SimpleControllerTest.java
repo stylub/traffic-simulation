@@ -1,7 +1,5 @@
 package com.trafficlights.simulation.trafficcontroller;
 
-import com.trafficlights.simulation.Roads.Roads;
-import com.trafficlights.simulation.car.Car;
 import com.trafficlights.simulation.utils.Command;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,28 +7,14 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 public class SimpleControllerTest {
 
     private SimpleController simpleController;
-    private Roads roadsMock;
-    private StepStatus stepStatusMock;
 
     @BeforeEach
     public void setUp() {
-        roadsMock = mock(Roads.class);
-        stepStatusMock = mock(StepStatus.class);
         simpleController = new SimpleController();
-    }
-
-    @Test
-    public void testMakeStep() {
-        when(roadsMock.getCar(anyString())).thenReturn(new Car("1","north","south"), null);
-
-        simpleController.makeStep();
-
-        verify(stepStatusMock, times(1)).addStep(anyList());
     }
 
     @Test

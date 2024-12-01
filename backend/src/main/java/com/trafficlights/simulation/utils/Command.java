@@ -29,4 +29,11 @@ public class Command {
     public void setEndRoad(String endRoad) {
         this.endRoad = endRoad;
     }
+    public String getVehicleDirection() {
+        if (startRoad != null && endRoad != null) {
+            return startRoad + endRoad;
+        } else {
+            throw new IllegalArgumentException("Start road and end road must not be null");
+        }
+    }
 }
