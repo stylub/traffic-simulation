@@ -20,4 +20,11 @@ public class TrafficControllerEndpoint {
         RoundRobinController roundRobinController = new RoundRobinController();
         return roundRobinController.startSimulation(commandRequest);
     }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PostMapping("/run-commands/wrr")
+    public SimulationResult runWRR(@RequestBody CommandRequest commandRequest) {
+        WRRController wrrController = new WRRController();
+        return wrrController.startSimulation(commandRequest);
+    }
 }

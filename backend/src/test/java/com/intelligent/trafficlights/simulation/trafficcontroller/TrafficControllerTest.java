@@ -1,6 +1,7 @@
 package com.trafficlights.simulation.trafficcontroller;
 
 import com.trafficlights.simulation.utils.Command;
+import com.trafficlights.simulation.utils.SimulationResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -61,10 +62,10 @@ public class TrafficControllerTest {
 
         controller.run();
 
-//        List<List<String>> returnValue = controller.getStepStatus().getLeftVehicles();
-//        assertEquals(2, returnValue.size());
-//        assertEquals(2, returnValue.get(0).size());
-//        assertEquals(0, returnValue.get(1).size());
+        List<SimulationResult.StepStatus> returnValue = controller.getStepStatus().getStepStatuses();
+        assertEquals(2, returnValue.size());
+        assertEquals(2, returnValue.get(0).getLeftVehicles().size());
+        assertEquals(0, returnValue.get(1).getLeftVehicles().size());
     }
 
     public void testRun(TrafficController controller) {
@@ -82,9 +83,9 @@ public class TrafficControllerTest {
 
         controller.run();
 
-//        List<List<String>> returnValue = controller.getStepStatus().getLeftVehicles();
-//        assertEquals(1, returnValue.size());
-//        assertEquals(1, returnValue.get(0).size());
-//        assertEquals("1", returnValue.get(0).get(0));
+        List<SimulationResult.StepStatus> returnValue = controller.getStepStatus().getStepStatuses();
+        assertEquals(1, returnValue.size());
+        assertEquals(1, returnValue.get(0).getLeftVehicles().size());
+        assertEquals("1", returnValue.get(0).getLeftVehicles().get(0));
     }
 }
