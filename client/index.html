@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Lights</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <form class="form" id="jsonUpload">
+        <input type="file" id="jsonFile" name="json" accept=".json" />
+        <button type="submit" id="sidebar-button">Upload JSON</button>
+      </form>
+
+      <button id="start-btn">Start Simulation</button>
+    </div>
+    <div class="content">
+      <canvas id="rive-canvas"></canvas>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
