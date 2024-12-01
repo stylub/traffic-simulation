@@ -2,17 +2,20 @@ import * as rive from "@rive-app/canvas";
 import { handleJsonUpload } from "./handlers/jsonUploadHandler.js";
 import { handleStartSimulation } from "./handlers/startSimulationHandler.js";
 import { resizeCanvas } from "./utils/canvasUtils.js";
+import { handleDownload } from "./handlers/downloadHandler.js";
 
 const jsonFile = document.getElementById("file");
 const startSimulation = document.getElementById("start-btn");
 const fileLabel = document.getElementById("file-label");
+const download = document.getElementById("download-btn");
 
 let jsonObject;
 let inputs;
+let fileName;
 
 jsonFile.addEventListener("change", (e) => {
   handleJsonUpload(jsonFile, (obj) => (jsonObject = obj))(e);
-  const fileName = e.target.files[0].name;
+  fileName = e.target.files[0].name;
   fileLabel.textContent = fileName;
 });
 
@@ -33,6 +36,8 @@ document.querySelectorAll(".option-box li").forEach((item) => {
   });
 });
 
+let simulationResult;
+
 const riveInstance = new rive.Rive({
   src: "traffic0.riv",
   canvas: canvas,
@@ -50,10 +55,21 @@ const riveInstance = new rive.Rive({
     startSimulation.onclick = async (e) => {
       e.preventDefault();
       const selectedAlgorithm = getSelectedOption();
-      await handleStartSimulation(jsonObject, inputs, selectedAlgorithm);
+      await handleStartSimulation(
+        jsonObject,
+        inputs,
+        selectedAlgorithm,
+        (data) => (simulationResult = data)
+      );
     };
   },
-  onStateChange: (event) => {
-    console.log(event.data);
-  },
 });
+
+download.onclick = async (e) => {
+  if (typeof simulationResult !== "undefined" && simulationResult !== null) {
+    const fileNameWithoutExtension = fileName.split(".")[0];
+    handleDownload(simulationResult, `${fileNameWithoutExtension}-output.json`);
+  } else {
+    window.alert("No simulation result to download");
+  }
+};

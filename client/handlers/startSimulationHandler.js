@@ -4,7 +4,8 @@ import { startCar } from "../utils/carUtils.js";
 export async function handleStartSimulation(
   jsonObject,
   inputs,
-  selectedAlgorithm
+  selectedAlgorithm,
+  setSimulationResult
 ) {
   if (!jsonObject) {
     console.error("No JSON object loaded.");
@@ -15,8 +16,6 @@ export async function handleStartSimulation(
   let carDirections;
 
   parseCarData(jsonObject, (obj) => (carDirections = obj));
-
-  console.log(carDirections);
 
   try {
     const response = await fetch(
@@ -29,16 +28,20 @@ export async function handleStartSimulation(
         body: JSON.stringify(jsonObject),
       }
     );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
 
     const data = await response.json();
-    console.log(data);
 
-    for (let vehicleList of data.leftVehicles) {
-      for (let vehicle of vehicleList) {
+    setSimulationResult(data);
+
+    const stepStatuses = data.stepStatuses;
+    for (const step of stepStatuses) {
+      for (const vehicle of step.leftVehicles) {
         startCar(inputs, carDirections[vehicle]);
-        console.log(`${vehicle} is going ${carDirections[vehicle]}`);
       }
-      if (vehicleList.length > 0) await delay(2500);
+      if (step.leftVehicles.length > 0) await delay(2500);
     }
   } catch (error) {
     console.error("Error:", error);

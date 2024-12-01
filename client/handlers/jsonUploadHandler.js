@@ -9,7 +9,6 @@ export function handleJsonUpload(jsonFile, setJsonObject) {
       try {
         const jsonObject = JSON.parse(event.target.result);
         setJsonObject(jsonObject);
-        console.log(jsonObject);
       } catch (error) {
         console.error("Error parsing JSON:", error);
         Window.alert("Error parsing JSON:", error);
