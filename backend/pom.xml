@@ -48,6 +48,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.tools</groupId>
+			<artifactId>jib-maven-plugin</artifactId>
+			<version>3.4.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -61,6 +67,22 @@
 						<argument>${inputFile}</argument>
 						<argument>${outputFile}</argument>
 					</arguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.4</version>
+				<configuration>
+					<from>
+						<image>openjdk:17-alpine</image>
+					</from>
+					<container>
+						<ports>
+							<port>8080</port>
+						</ports>
+						<format>OCI</format>
+					</container>
 				</configuration>
 			</plugin>
 		</plugins>

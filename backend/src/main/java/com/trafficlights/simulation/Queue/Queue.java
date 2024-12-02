@@ -38,4 +38,13 @@ public class Queue {
         }
         return maxIndex;
     }
+
+    public boolean allEmpty() {
+        for (int q : queues) {
+            if (q != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

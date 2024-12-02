@@ -4,9 +4,6 @@ package com.trafficlights.simulation.car;
 import com.trafficlights.simulation.utils.Command;
 import com.trafficlights.simulation.utils.Directions;
 
-// "vehicleId": "vehicle1",
-// "startRoad": "south",
-// "endRoad": "north"
 public class Car {
     private final String vehicleId;
     private final Directions startRoad;

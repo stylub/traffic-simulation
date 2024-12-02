@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class WeightQueue extends Queue{
     private int maxWeight = 10;
-    private final ArrayList<Integer> weights;
+    protected final ArrayList<Integer> weights;
     public WeightQueue(Rounds rounds) {
         super(rounds);
         weights = new ArrayList<>(Collections.nCopies(queues.size(),0));
@@ -25,7 +25,7 @@ public class WeightQueue extends Queue{
 
     @Override
     public int takeMax() {
-        if(allEmpty()) resetWeights();
+        if(allWeightsEmpty()) resetWeights();
         int maxIndex = 0;
         int currentMax = weights.get(0);
         for (int i = 1; i < weights.size(); i++) {
@@ -47,12 +47,16 @@ public class WeightQueue extends Queue{
         }
     }
 
-    public boolean allEmpty(){
+    public boolean allWeightsEmpty(){
         for (int w : weights) {
             if (w != 0) {
                 return false;
             }
         }
         return true;
+    }
+
+    public ArrayList<Integer> getWeights(){
+        return weights;
     }
 }

@@ -10,6 +10,9 @@ public class Rounds {
     public Rounds() {
         this.rounds = defaultRounds();
     }
+    public Rounds(List<List<String>> rounds){
+        this.rounds = rounds;
+    }
     private List<List<String>> defaultRounds() {
         List<List<String>> rounds = new ArrayList<>();
         rounds.add(List.of("northsouth", "southnorth"));
