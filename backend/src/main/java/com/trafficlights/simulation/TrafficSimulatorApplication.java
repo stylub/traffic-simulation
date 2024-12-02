@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 @SpringBootApplication
 public class TrafficSimulatorApplication {
 	public static void main(String[] args) {
-		if ("true".equals(args[0])) {
+		if (args.length < 3 || "true".equals(args[0])) {
 			SpringApplication.run(TrafficSimulatorApplication.class, args);
 		}
 		else {
