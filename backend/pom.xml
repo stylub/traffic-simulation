@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<runSpringBoot>true</runSpringBoot>
 		<inputFile>input.json</inputFile>
 		<outputFile>output.json</outputFile>
 	</properties>
@@ -64,6 +65,7 @@
 				<configuration>
 					<mainClass>com.trafficlights.simulation.TrafficSimulatorApplication</mainClass>
 					<arguments>
+						<argument>${runSpringBoot}</argument>
 						<argument>${inputFile}</argument>
 						<argument>${outputFile}</argument>
 					</arguments>

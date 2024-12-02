@@ -13,17 +13,12 @@ import java.nio.file.Paths;
 @SpringBootApplication
 public class TrafficSimulatorApplication {
 	public static void main(String[] args) {
-		if (args.length < 2) {
+		if ("true".equals(args[0])) {
 			SpringApplication.run(TrafficSimulatorApplication.class, args);
 		}
-//		if (args.length < 2) {
-//			System.out.println("Usage: mvn spring-boot:run -DinputFile='input.json' -DoutputFile='output.json'");
-//			return;
-//		}
 		else {
-
-			String inputFilePath = args[0];
-			String outputFilePath = args[1];
+			String inputFilePath = args[1];
+			String outputFilePath = args[2];
 
 			try {
 				String inputContent = new String(Files.readAllBytes(Paths.get(inputFilePath)));
