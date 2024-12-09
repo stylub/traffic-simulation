@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: black;
+}
+
+.content {
+  flex: 1;
+}
+
+#rive-canvas {
+  flex: 1;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  width: 30%;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+input {
+  display: none;
+}
+
+.sidebar label {
+  height: 100px;
+  width: 60%;
+  border-radius: 6px;
+  color: #999;
+  border: 3px dashed #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar label:hover {
+  color: #de0611;
+  border: 3px dashed #de0611;
+}
+
+.action-btn {
+  background-color: #999;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.action-btn:hover {
+  background-color: #de0611;
+}
+
+#choose-algorithm {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#choose-algorithm h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.option-box {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.option-box li {
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option-box li.selected {
+  background-color: #de0611;
+}
+
+.option-box li:hover {
+  background-color: rgb(206, 100, 100);
+}

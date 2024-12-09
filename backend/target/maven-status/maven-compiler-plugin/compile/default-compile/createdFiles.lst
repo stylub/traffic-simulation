@@ -1,0 +1,16 @@
+com\trafficlights\simulation\car\Car.class
+com\trafficlights\simulation\trafficcontroller\TrafficControllerEndpoint.class
+com\trafficlights\simulation\Queue\WeightQueue.class
+com\trafficlights\simulation\utils\Command.class
+com\trafficlights\simulation\trafficcontroller\RoundRobinController.class
+com\trafficlights\simulation\trafficcontroller\TrafficController.class
+com\trafficlights\simulation\utils\Rounds.class
+com\trafficlights\simulation\trafficcontroller\WRRController.class
+com\trafficlights\simulation\utils\Directions.class
+com\trafficlights\simulation\trafficcontroller\SimpleController.class
+com\trafficlights\simulation\utils\SimulationResult.class
+com\trafficlights\simulation\utils\CommandRequest.class
+com\trafficlights\simulation\Queue\Queue.class
+com\trafficlights\simulation\utils\SimulationResult$StepStatus.class
+com\trafficlights\simulation\Roads\Roads.class
+com\trafficlights\simulation\TrafficSimulatorApplication.class
