@@ -39,7 +39,7 @@ document.querySelectorAll(".option-box li").forEach((item) => {
 let simulationResult;
 
 const riveInstance = new rive.Rive({
-  src: "traffic0.riv",
+  src: "client/public/traffic0.riv",
   canvas: canvas,
   autoplay: true,
   artboard: "Artboard",
